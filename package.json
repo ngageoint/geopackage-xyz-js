@@ -22,7 +22,6 @@
   "bugs": {
     "url": "https://github.com/ngageoint/geopackage-xyz-js/issues"
   },
-  "private": true,
   "dependencies": {
     "@ngageoint/geopackage": "4.1.0",
     "jszip": "^3.1.3"
