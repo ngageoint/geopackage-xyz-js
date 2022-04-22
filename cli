@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+var {XYZToGeoPackage} = require('./built/index');
+var path = require('path');
+var fs = require('fs');
+
+console.log('XYZ to GeoPackage Converter');
+
+// var xyzZip = path.resolve(process.cwd(), process.argv[2]);
+var geoPackageFile = path.resolve(process.cwd(), process.argv[2]);
+
+// console.log('Converting %s to %s', xyzZip, geoPackageFile);
+// new XYZToGeoPackage().convert({ xyzZip: xyzZip, geoPackage: geoPackageFile }).then(() => {
+//   console.log('File conversion complete');
+//   console.log('Converted %s to %s', xyzZip, geoPackageFile);
+// });
+
+new XYZToGeoPackage().extract(geoPackageFile, 'xyz').then((zip) => {
+  console.log('Extraction complete');
+  fs.writeFileSync('test.zip', zip);
+});
